@@ -72,7 +72,7 @@ export async function GET(req: NextRequest) {
         }
 
         cellsOk++
-        await new Promise(r => setTimeout(r, 8000))
+        await new Promise(r => setTimeout(r, 15000))
 
       } catch (err: any) {
         cellsErr++
