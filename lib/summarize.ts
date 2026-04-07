@@ -17,7 +17,7 @@ export async function generateTrendSummary(
 
   const systemPrompt = `You are a senior analyst at Wind Ventures, a VC fund focused on Energy, Mobility, and Convenience (retail/commerce). Search for real, current news and synthesize what is genuinely happening in a sector drawing only from what you find in articles, blogs, trade publications, and analyst reports. Never invent data.`
 
-  const userPrompt = `Search the web for news and articles about trends in the ${verticalLabel} sector in ${regionLabel} for ${monthLabel}. Based on what you find, write a 3-4 sentence paragraph summarizing the most important general trends. Focus on what themes are dominating coverage, what technologies or business models are gaining traction, and what this signals for the direction of the sector. Also extract 3-5 signal tags (2-4 words each) and list the domains of sources you referenced. Respond ONLY with raw JSON, no markdown, no backticks. Start with { end with }: {"summary":"3-4 sentences here","signals":["Tag One","Tag Two","Tag Three"],"sources":["techcrunch.com","bloomberg.com"]}`
+  const userPrompt = `Search for recent news about trends in the ${verticalLabel} sector in ${regionLabel} for ${monthLabel}. Write 2-3 sentences summarizing the key trends from what you find. List 3 signal tags (2-4 words each) and source domains. Respond ONLY with JSON: {"summary":"...","signals":["Tag One","Tag Two","Tag Three"],"sources":["domain.com"]}`
 
   const response1 = await anthropic.messages.create({
     model: 'claude-haiku-4-5-20251001',
